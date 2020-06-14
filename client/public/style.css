@@ -115,3 +115,8 @@ body {
     border-radius: 5px;
     margin: 30px;
 }
+
+.loading-container {
+    display: none;
+    text-align: center;
+}

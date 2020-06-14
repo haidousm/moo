@@ -1,14 +1,22 @@
 import React, { useState } from "react";
-import axios from "axios";
+const axios = require("axios").default;
+
 function Header() {
     const [newMoo, setNewMoo] = useState("");
 
     const postNewMoo = () => {
-        axios.post(
-            "",
-            { moo: newMoo },
-            { headers: { "Content-Type": "application/json" } }
-        );
+        axios
+            .post(
+                "http://localhost:5000/",
+                { moo: newMoo },
+                { headers: { "Content-Type": "application/json" } }
+            )
+            .then(function (response: string) {
+                console.log(response);
+            })
+            .catch(function (error: string) {
+                console.log(error);
+            });
     };
 
     return (

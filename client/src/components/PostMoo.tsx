@@ -2,10 +2,18 @@ import React, { useState } from "react";
 const axios = require("axios").default;
 function PostMoo() {
     const [newMoo, setNewMoo] = useState("");
+
     const postNewMoo = () => {
+        // const form = document.getElementById("new-moo");
+        // const loadingSpinner = document.getElementById("loading-spinner");
+        // form!.style.display = "none";
+        // loadingSpinner!.style.display = "block";
+
+        setNewMoo("");
+
         axios
             .post(
-                "http://localhost:5000/",
+                "http://localhost:5000/moos",
                 { moo: newMoo },
                 { headers: { "Content-Type": "application/json" } }
             )
@@ -15,13 +23,8 @@ function PostMoo() {
             .catch(function (error: string) {
                 console.log(error);
             });
-
-        const form = document.getElementById("new-moo");
-        form!.style.display = "none";
-
-        const loadingSpinner = document.getElementById("loading-spinner");
-        loadingSpinner!.style.display = "block";
     };
+
     return (
         <div className="new-moo-container" id="new-moo">
             <div className="new-moo-input-field">

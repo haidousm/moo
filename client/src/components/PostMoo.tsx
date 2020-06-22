@@ -17,9 +17,6 @@ function PostMoo() {
                 { moo: newMoo },
                 { headers: { "Content-Type": "application/json" } }
             )
-            .then(function (response: string) {
-                console.log(response);
-            })
             .catch(function (error: string) {
                 console.log(error);
             });

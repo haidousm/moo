@@ -13,6 +13,16 @@ const moos = db.get("moos");
  
 const PORT = process.env.PORT || 5000;
 
+app.get("/moos", (req, res) => {
+
+    moos.find().then(moos => {
+
+        res.json(moos);
+
+    })
+
+})
+
 app.post("/moos", (req, res) => {
 
     const moo = {

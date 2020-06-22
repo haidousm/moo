@@ -13,6 +13,7 @@ interface IMoos {
 
 interface IMoo {
     content: string;
+    created: string;
 }
 
 function Feed() {
@@ -33,7 +34,10 @@ function Feed() {
                 .slice(0)
                 .reverse()
                 .map((moo) => (
-                    <Moo mooValue={moo.content} />
+                    <Moo
+                        mooValue={moo.content}
+                        mooDate={new Date(moo.created)}
+                    />
                 ))}
         </div>
     );

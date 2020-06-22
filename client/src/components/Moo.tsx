@@ -2,9 +2,10 @@ import React from "react";
 
 interface IProps {
     mooValue: string;
+    mooDate: Date;
 }
 
-function Moo({ mooValue }: IProps) {
+function Moo({ mooValue, mooDate }: IProps) {
     return (
         <div className="moo-container">
             <div className="moo-username-container">
@@ -14,7 +15,7 @@ function Moo({ mooValue }: IProps) {
                 <p>{mooValue}</p>
             </div>
             <div className="moo-date-container">
-                <p>2020-05-10</p>
+                <p>{mooDate.toLocaleString()}</p>
             </div>
         </div>
     );

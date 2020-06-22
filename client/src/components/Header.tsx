@@ -2,7 +2,11 @@ import React from "react";
 import PostMoo from "./PostMoo";
 import Loading from "./Loading";
 
-function Header() {
+interface IProps {
+    setNewMooExists: (newMooExists: boolean) => void;
+}
+
+function Header({ setNewMooExists }: IProps) {
     return (
         <div className="header-container">
             <div className="profile-container">
@@ -11,7 +15,7 @@ function Header() {
                     Edit Profile
                 </a>
             </div>
-            <PostMoo />
+            <PostMoo setNewMooExists={setNewMooExists} />
             <Loading />
         </div>
     );

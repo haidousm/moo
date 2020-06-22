@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 const axios = require("axios").default;
-function PostMoo() {
+interface IProps {
+    setNewMooExists: (newMooExists: boolean) => void;
+}
+
+function PostMoo({ setNewMooExists }: IProps) {
     const [newMoo, setNewMoo] = useState("");
 
     const postNewMoo = () => {
@@ -17,6 +21,7 @@ function PostMoo() {
                 { moo: newMoo },
                 { headers: { "Content-Type": "application/json" } }
             )
+            .then(setNewMooExists(true))
             .catch(function (error: string) {
                 console.log(error);
             });

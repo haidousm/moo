@@ -29,9 +29,12 @@ function Feed() {
 
     return (
         <div className="feed-container">
-            {moos.map((moo) => (
-                <Moo mooValue={moo.content} />
-            ))}
+            {moos
+                .slice(0)
+                .reverse()
+                .map((moo) => (
+                    <Moo mooValue={moo.content} />
+                ))}
         </div>
     );
 }

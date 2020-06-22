@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 const axios = require("axios").default;
+
 interface IProps {
     setNewMooExists: (newMooExists: boolean) => void;
 }
@@ -8,13 +9,7 @@ function PostMoo({ setNewMooExists }: IProps) {
     const [newMoo, setNewMoo] = useState("");
 
     const postNewMoo = () => {
-        // const form = document.getElementById("new-moo");
-        // const loadingSpinner = document.getElementById("loading-spinner");
-        // form!.style.display = "none";
-        // loadingSpinner!.style.display = "block";
-
         setNewMoo("");
-
         axios
             .post(
                 "http://localhost:5000/moos",

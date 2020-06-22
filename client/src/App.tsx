@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Header from "./components/Header";
 import Feed from "./components/Feed";
 function App() {
-    const [newMoo, setNewMoo] = useState(false);
+    const [newMoo, setNewMoo] = useState(true);
 
     const setNewMooExists = (newMooExists: boolean) => {
         setNewMoo(newMooExists);

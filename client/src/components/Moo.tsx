@@ -13,6 +13,9 @@ function Moo({ mooValue }: IProps) {
             <div className="moo-text-container">
                 <p>{mooValue}</p>
             </div>
+            <div className="moo-date-container">
+                <p>2020-05-10</p>
+            </div>
         </div>
     );
 }

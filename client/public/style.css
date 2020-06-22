@@ -114,6 +114,16 @@ body {
     border: 1px solid #000;
     border-radius: 5px;
     margin: 30px;
+
+    display: grid;
+    grid-template-columns: 2;
+    grid-template-rows: 2;
+}
+
+.moo-date-container {
+    grid-row: 1 / 1;
+    grid-column: 2 / 2;
+    text-align: end;
 }
 
 .loading-container {

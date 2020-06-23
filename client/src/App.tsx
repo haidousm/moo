@@ -9,7 +9,7 @@ function App() {
     };
 
     return (
-        <div className="container">
+        <div>
             <Header setNewMooExists={setNewMooExists} />
             <Feed newMooExists={newMoo} setNewMooExists={setNewMooExists} />
         </div>

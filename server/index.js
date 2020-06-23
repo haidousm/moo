@@ -5,13 +5,17 @@ const monk = require("monk");
 
 const app = express();
 
+const db = monk("localhost/posts");
+const posts = db.get("posts");
+
+const PORT = process.env.PORT || 5000;
+
 app.use(cors());
 app.use(bodyParser.json());
 
-const db = monk("localhost/posts");
-const posts = db.get("posts");
- 
-const PORT = process.env.PORT || 5000;
+
+// @desc Fetch Posts
+// @route GET /posts
 
 app.get("/posts", (req, res) => {
 
@@ -22,6 +26,9 @@ app.get("/posts", (req, res) => {
     })
 
 })
+
+// @desc Create New Post
+// @route POST /posts
 
 app.post("/posts", (req, res) => {
 

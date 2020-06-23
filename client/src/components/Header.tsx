@@ -51,10 +51,7 @@ function Header({ setPostCreatedFlag }: IProps) {
         <HeaderContainer>
             <ProfileContainer>
                 <ProfileImageContainer></ProfileImageContainer>
-                <EditProfileButton
-                    href="https://google.com"
-                    className="edit-profile-button"
-                >
+                <EditProfileButton href="https://google.com">
                     Edit Profile
                 </EditProfileButton>
             </ProfileContainer>

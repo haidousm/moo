@@ -73,7 +73,7 @@ function PostForm({ setPostCreatedFlag }: IProps) {
         setNewPost("");
         axios
             .post(
-                "http://localhost:5000/moos",
+                "http://localhost:5000/posts",
                 { post: newPost },
                 { headers: { "Content-Type": "application/json" } }
             )

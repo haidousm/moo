@@ -8,32 +8,32 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
-const db = monk("localhost/moos");
-const moos = db.get("moos");
+const db = monk("localhost/posts");
+const posts = db.get("posts");
  
 const PORT = process.env.PORT || 5000;
 
-app.get("/moos", (req, res) => {
+app.get("/posts", (req, res) => {
 
-    moos.find().then(moos => {
+    posts.find().then(posts => {
 
-        res.json(moos);
+        res.json(posts);
 
     })
 
 })
 
-app.post("/moos", (req, res) => {
+app.post("/posts", (req, res) => {
 
-    const moo = {
+    const newPost = {
 
-        content: req.body.moo.toString(),
+        content: req.body.post.toString(),
         created: new Date()
 
     }
 
-    console.log(moo);
-    moos.insert(moo).then(dbResponse => res.json(dbResponse)).catch(console.error);
+    console.log(newPost);
+    posts.insert(newPost).then(dbResponse => res.json(dbResponse)).catch(console.error);
 
 })
 

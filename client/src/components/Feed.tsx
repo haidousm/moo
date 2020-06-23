@@ -50,7 +50,7 @@ function Feed({ postCreatedFlag, setPostCreatedFlag }: IProps) {
     useEffect(() => {
         if (postCreatedFlag) {
             axios
-                .get("http://localhost:5000/moos")
+                .get("http://localhost:5000/posts")
                 .then((posts: IPosts) => {
                     setFetchedPosts(posts.data);
                 })

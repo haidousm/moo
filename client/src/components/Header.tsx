@@ -12,6 +12,12 @@ const HeaderContainer = styled.div`
     display: grid;
     grid-template-columns: 300px 1fr;
     border-bottom: 1px solid #000;
+
+    @media only screen and (max-width: 1100px) {
+        grid-template-columns: 100%;
+        grid-template-rows: 175px 1fr;
+        height: 400px;
+    }
 `;
 
 const ProfileContainer = styled.div`
@@ -24,6 +30,13 @@ const ProfileContainer = styled.div`
     justify-items: center;
 
     border-right: 1px solid #000;
+
+    @media only screen and (max-width: 1100px) {
+        border-right: 0px;
+        border-bottom: 1px solid #000;
+
+        width: 100%;
+    }
 `;
 
 const ProfileImageContainer = styled.div`

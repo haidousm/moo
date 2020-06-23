@@ -20,6 +20,11 @@ const PostFormContainer = styled.div`
 
     font-size: 2rem;
     padding-left: 20px;
+
+    @media only screen and (max-width: 1100px) {
+        flex-direction: column;
+        padding-left: 0px;
+    }
 `;
 
 const InputFieldContainer = styled.div`
@@ -32,6 +37,11 @@ const InputFieldContainer = styled.div`
 
     display: flex;
     align-items: center;
+
+    @media only screen and (max-width: 1100px) {
+        width: 100%;
+        text-align: center;
+    }
 `;
 
 const InputField = styled.input`
@@ -48,6 +58,11 @@ const InputField = styled.input`
 
     &::placeholder {
         color: black;
+    }
+
+    @media only screen and (max-width: 1100px) {
+        text-align: center;
+        padding-left: 0px;
     }
 `;
 

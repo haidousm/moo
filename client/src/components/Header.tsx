@@ -1,5 +1,5 @@
 import React from "react";
-import PostMoo from "./PostMoo";
+import PostForm from "./PostMoo";
 import Loading from "./Loading";
 import styled from "styled-components";
 
@@ -59,7 +59,7 @@ function Header({ setNewMooExists }: IProps) {
                     Edit Profile
                 </EditProfileButton>
             </ProfileContainer>
-            <PostMoo setNewMooExists={setNewMooExists} />
+            <PostForm setNewMooExists={setNewMooExists} />
             <Loading />
         </HeaderContainer>
     );

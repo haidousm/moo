@@ -64,7 +64,7 @@ const PostButton = styled.input`
     background-color: transparent;
 `;
 
-function PostMoo({ setNewMooExists }: IProps) {
+function PostForm({ setNewMooExists }: IProps) {
     // State Management
     const [newMoo, setNewMoo] = useState("");
 
@@ -107,4 +107,4 @@ function PostMoo({ setNewMooExists }: IProps) {
     );
 }
 
-export default PostMoo;
+export default PostForm;

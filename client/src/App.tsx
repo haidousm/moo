@@ -1,21 +1,9 @@
 import React, { useState } from "react";
-import Header from "./components/Header";
-import Feed from "./components/Feed";
+import Dashboard from "./components/Dashboard";
 function App() {
-    // State Management
-    const [postCreatedFlag, setPostCreatedFlag] = useState(true);
-
-    const setPostCreatedFlagWrapper = (postCreatedFlag: boolean) => {
-        setPostCreatedFlag(postCreatedFlag);
-    };
-
     return (
         <div>
-            <Header setPostCreatedFlag={setPostCreatedFlagWrapper} />
-            <Feed
-                postCreatedFlag={postCreatedFlag}
-                setPostCreatedFlag={setPostCreatedFlagWrapper}
-            />
+            <Dashboard />
         </div>
     );
 }

@@ -27,6 +27,18 @@ interface IProps {
     setNewMooExists: (newMooExists: boolean) => void;
 }
 
+// Styles
+
+const FeedContainer = styled.div`
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    height: 500px;
+    overflow-y: auto;
+`;
+
 function Feed({ newMooExists, setNewMooExists }: IProps) {
     // State Management
 
@@ -45,18 +57,6 @@ function Feed({ newMooExists, setNewMooExists }: IProps) {
             setNewMooExists(false);
         }
     }, [newMooExists, setNewMooExists]);
-
-    // Styles
-
-    const FeedContainer = styled.div`
-        padding: 50px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-
-        height: 500px;
-        overflow-y: auto;
-    `;
 
     return (
         <FeedContainer>

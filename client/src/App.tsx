@@ -2,16 +2,20 @@ import React, { useState } from "react";
 import Header from "./components/Header";
 import Feed from "./components/Feed";
 function App() {
-    const [newMoo, setNewMoo] = useState(true);
+    // State Management
+    const [postCreatedFlag, setPostCreatedFlag] = useState(true);
 
-    const setNewMooExists = (newMooExists: boolean) => {
-        setNewMoo(newMooExists);
+    const setPostCreatedFlagWrapper = (postCreatedFlag: boolean) => {
+        setPostCreatedFlag(postCreatedFlag);
     };
 
     return (
         <div>
-            <Header setNewMooExists={setNewMooExists} />
-            <Feed newMooExists={newMoo} setNewMooExists={setNewMooExists} />
+            <Header setPostCreatedFlag={setPostCreatedFlagWrapper} />
+            <Feed
+                postCreatedFlag={postCreatedFlag}
+                setPostCreatedFlag={setPostCreatedFlagWrapper}
+            />
         </div>
     );
 }

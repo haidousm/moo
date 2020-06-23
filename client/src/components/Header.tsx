@@ -1,9 +1,9 @@
 import React from "react";
-import PostForm from "./PostMoo";
+import PostForm from "./PostForm";
 import styled from "styled-components";
 
 interface IProps {
-    setNewMooExists: (newMooExists: boolean) => void;
+    setPostCreatedFlag: (postCreated: boolean) => void;
 }
 
 // Styling
@@ -46,7 +46,7 @@ const EditProfileButton = styled.a`
     width: 100px;
 `;
 
-function Header({ setNewMooExists }: IProps) {
+function Header({ setPostCreatedFlag }: IProps) {
     return (
         <HeaderContainer>
             <ProfileContainer>
@@ -58,7 +58,7 @@ function Header({ setNewMooExists }: IProps) {
                     Edit Profile
                 </EditProfileButton>
             </ProfileContainer>
-            <PostForm setNewMooExists={setNewMooExists} />
+            <PostForm setPostCreatedFlag={setPostCreatedFlag} />
         </HeaderContainer>
     );
 }

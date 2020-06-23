@@ -4,7 +4,7 @@ const axios = require("axios").default;
 
 // Prop types
 interface IProps {
-    setNewMooExists: (newMooExists: boolean) => void;
+    setPostCreatedFlag: (postCreated: boolean) => void;
 }
 
 // Styles
@@ -64,20 +64,20 @@ const PostButton = styled.input`
     background-color: transparent;
 `;
 
-function PostForm({ setNewMooExists }: IProps) {
+function PostForm({ setPostCreatedFlag }: IProps) {
     // State Management
-    const [newMoo, setNewMoo] = useState("");
+    const [newPost, setNewPost] = useState("");
 
-    // Create and POST new moo to API
-    const postNewMoo = () => {
-        setNewMoo("");
+    // Create and POST new post to API
+    const createNewPost = () => {
+        setNewPost("");
         axios
             .post(
                 "http://localhost:5000/moos",
-                { moo: newMoo },
+                { post: newPost },
                 { headers: { "Content-Type": "application/json" } }
             )
-            .then(setNewMooExists(true))
+            .then(setPostCreatedFlag(true))
             .catch(function (error: string) {
                 console.log(error);
             });
@@ -89,9 +89,9 @@ function PostForm({ setNewMooExists }: IProps) {
                 <InputField
                     type="text"
                     placeholder="What is on your mind?"
-                    value={newMoo}
+                    value={newPost}
                     onChange={(e) => {
-                        setNewMoo(e.target.value);
+                        setNewPost(e.target.value);
                     }}
                 />
             </InputFieldContainer>
@@ -100,7 +100,7 @@ function PostForm({ setNewMooExists }: IProps) {
                 type="button"
                 value="Moo"
                 onClick={() => {
-                    postNewMoo();
+                    createNewPost();
                 }}
             />
         </PostFormContainer>

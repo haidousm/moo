@@ -2,10 +2,9 @@ import React from "react";
 import styled from "styled-components";
 
 // Prop types
-
 interface IProps {
-    mooValue: string;
-    mooDate: Date;
+    postContent: string;
+    postDate: Date;
 }
 
 // Styles
@@ -61,22 +60,22 @@ const PostContentContainer = styled.div`
     grid-column: 1 / 3;
 `;
 
-function Moo({ mooValue, mooDate }: IProps) {
+function Post({ postContent, postDate }: IProps) {
     return (
         <PostContainer>
-            <PostInfoContainer className="moo-info-container">
-                <PostUsernameContainer className="moo-username-container">
+            <PostInfoContainer>
+                <PostUsernameContainer>
                     <p>Moussa Haidous</p>
                 </PostUsernameContainer>
-                <PostDateContainer className="moo-date-container">
-                    <p>{mooDate.toLocaleString()}</p>
+                <PostDateContainer>
+                    <p>{postDate.toLocaleString()}</p>
                 </PostDateContainer>
             </PostInfoContainer>
-            <PostContentContainer className="moo-text-container">
-                <p>{mooValue}</p>
+            <PostContentContainer>
+                <p>{postContent}</p>
             </PostContentContainer>
         </PostContainer>
     );
 }
 
-export default Moo;
+export default Post;

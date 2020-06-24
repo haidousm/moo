@@ -2,6 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const bodyParser = require("body-parser");
 const monk = require("monk");
+const dotenv = require('dotenv').config({ path: `${__dirname}/config/config.env`});
 
 const app = express();
 

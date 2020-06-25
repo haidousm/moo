@@ -17,26 +17,23 @@ const app = express();
 
 // Passport config
 
-//require("./config/passport")(passport);
+require("./config/passport")(passport);
 
-// const db = monk("localhost/posts");
-// const posts = db.get("posts");
-
-const PORT = 5000;
+const PORT = process.env.PORT;
 
 app.use(cors());
 app.use(bodyParser.json());
 app.use(morgan("dev"));
 
-// app.use(
-//     session({
-//         secret: "moooo",
-//         resave: false,
-//         saveUninitialized: false,
-//     })
-// );
-// app.use(passport.initialize());
-// app.use(passport.session());
+app.use(
+    session({
+        secret: "moooo",
+        resave: false,
+        saveUninitialized: false,
+    })
+);
+app.use(passport.initialize());
+app.use(passport.session());
 
 // @desc Fetch Posts
 // @route GET /posts

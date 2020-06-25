@@ -63,4 +63,6 @@ app.post("/posts", (req, res) => {
     });
 });
 
+app.use("/auth", require(".routes/auth"));
+
 app.listen(PORT, () => console.log(`Server listening @ port ${PORT}`));

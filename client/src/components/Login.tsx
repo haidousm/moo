@@ -17,7 +17,7 @@ const Heading = styled.h1`
     font-color: black;
 `;
 
-const Button = styled.button`
+const Button = styled.a`
     color: white;
     background-color: #000;
 
@@ -37,7 +37,9 @@ function Login() {
                     {" "}
                     Welcome to <br></br> Moo
                 </Heading>
-                <Button>Login using Google</Button>
+                <Button href="http://localhost:5000/auth/google">
+                    Login using Google
+                </Button>
             </LoginContainer>
         </div>
     );

@@ -37,9 +37,7 @@ function Login() {
                     {" "}
                     Welcome to <br></br> Moo
                 </Heading>
-                <Button href="http://localhost:5000/auth/google">
-                    Login using Google
-                </Button>
+                <Button href="">Login using Google</Button>
             </LoginContainer>
         </div>
     );

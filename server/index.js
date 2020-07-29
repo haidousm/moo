@@ -3,10 +3,13 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const connectDB = require("./config/db");
+const morgan = require("morgan");
+const passport = require("passport");
+const session = require("express-session");
+const MongoStore = require("connect-mongo")(session);
 const dotenv = require("dotenv").config({
     path: "./config/config.env",
 });
-const morgan = require("morgan");
 
 // MongoDB config
 connectDB();
@@ -18,6 +21,21 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(morgan("dev"));
 
+// Sessions
+app.use(
+    session({
+        secret: "keyboard cat",
+        resave: false,
+        saveUninitialized: false,
+        store: new MongoStore({ mongooseConnection: mongoose.connection }),
+    })
+);
+
+// Passport middleware
+app.use(passport.initialize());
+app.use(passport.session());
+
 app.use("/posts", require("./routes/posts"));
+app.use("/auth", require("./routes/auth"));
 
 app.listen(PORT, () => console.log(`Server listening @ port ${PORT}`));

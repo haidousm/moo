@@ -9,7 +9,6 @@ const Post = require("../models/Post");
 router.get("/", (req, res) => {
     const posts = Post.find(function (error, posts) {
         if (error) return console.error(error);
-        console.log(req.user);
         res.json(posts);
     });
 });

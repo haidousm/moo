@@ -7,15 +7,22 @@ const morgan = require("morgan");
 const passport = require("passport");
 const session = require("express-session");
 const MongoStore = require("connect-mongo")(session);
+
+// Dotenv config
 const dotenv = require("dotenv").config({
     path: "./config/config.env",
 });
+
+// Passport config
+require("./config/passport")(passport);
 
 // MongoDB config
 connectDB();
 
 const app = express();
 const PORT = process.env.PORT;
+
+// Middleware
 
 app.use(cors());
 app.use(bodyParser.json());

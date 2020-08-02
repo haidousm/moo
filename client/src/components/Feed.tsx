@@ -66,8 +66,9 @@ function Feed({ postCreatedFlag, setPostCreatedFlag }: IProps) {
                 fetchedPosts
                     .slice(0)
                     .reverse()
-                    .map((post) => (
+                    .map((post, i) => (
                         <Post
+                            key={i}
                             postContent={post.content}
                             postDate={new Date(post.created)}
                         />

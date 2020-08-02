@@ -23,4 +23,8 @@ router.get("/logout", (req, res) => {
     res.redirect("/");
 });
 
+router.get("/user", (req, res) => {
+    res.json(req.isAuthenticated());
+});
+
 module.exports = router;

@@ -1,7 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Header from "./Header";
 import Feed from "./Feed";
-const axios = require("axios").default;
+
+interface IProps {
+    userProfile: IUserProfile;
+}
 
 interface IUserProfile {
     displayName: string;
@@ -10,28 +13,13 @@ interface IUserProfile {
     imageUrl: string;
 }
 
-function Dashboard() {
+function Dashboard({ userProfile }: IProps) {
     // State Management
     const [postCreatedFlag, setPostCreatedFlag] = useState(true);
-    const [userProfile, setUserProfile] = useState<IUserProfile>({
-        displayName: "",
-        firstName: "",
-        lastName: "",
-        imageUrl: "",
-    });
 
     const setPostCreatedFlagWrapper = (postCreatedFlag: boolean) => {
         setPostCreatedFlag(postCreatedFlag);
     };
-
-    useEffect(() => {
-        axios
-            .get("http://localhost:5000/auth/user", { withCredentials: true })
-            .then((req: { data: IUserProfile }) => {
-                setUserProfile(req.data);
-            })
-            .catch(console.error);
-    }, []);
 
     return (
         <div>

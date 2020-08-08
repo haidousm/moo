@@ -20,7 +20,7 @@ router.get(
 // @route   /auth/logout
 router.get("/logout", (req, res) => {
     req.logout();
-    res.redirect("/");
+    res.redirect("http://localhost:3000/");
 });
 
 // @desc Get user profile
@@ -28,7 +28,11 @@ router.get("/logout", (req, res) => {
 
 router.get("/user", (req, res) => {
     if (req.user) {
+        res.statusCode = 200;
         res.json(req.user);
+    } else {
+        res.statusCode = 401;
+        res.send();
     }
 });
 

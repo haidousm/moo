@@ -90,7 +90,10 @@ function PostForm({ setPostCreatedFlag }: IProps) {
             .post(
                 "http://localhost:5000/posts",
                 { post: newPost },
-                { headers: { "Content-Type": "application/json" } }
+                {
+                    headers: { "Content-Type": "application/json" },
+                    withCredentials: true,
+                }
             )
             .then(setPostCreatedFlag(true))
             .catch(function (error: string) {

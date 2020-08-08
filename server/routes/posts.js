@@ -19,7 +19,8 @@ router.get("/", (req, res) => {
 router.post("/", (req, res) => {
     const newPost = new Post({
         content: req.body.post.toString(),
-        created: new Date(),
+        user: req.user._id,
+        createdAt: new Date(),
     });
 
     newPost.save((error, newPost) => {

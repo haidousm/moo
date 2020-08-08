@@ -18,7 +18,7 @@ interface IPosts {
 
 interface IPost {
     content: string;
-    created: string;
+    createdAt: string;
 }
 
 // Types for component props - used to fetch new posts when a new post is created
@@ -50,7 +50,7 @@ function Feed({ postCreatedFlag, setPostCreatedFlag }: IProps) {
     useEffect(() => {
         if (postCreatedFlag) {
             axios
-                .get("http://localhost:5000/posts")
+                .get("http://localhost:5000/posts", { withCredentials: true })
                 .then((posts: IPosts) => {
                     setFetchedPosts(posts.data);
                 })
@@ -70,7 +70,7 @@ function Feed({ postCreatedFlag, setPostCreatedFlag }: IProps) {
                         <Post
                             key={i}
                             postContent={post.content}
-                            postDate={new Date(post.created)}
+                            postDate={new Date(post.createdAt)}
                         />
                     ))
             }

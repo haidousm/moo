@@ -23,8 +23,13 @@ router.get("/logout", (req, res) => {
     res.redirect("/");
 });
 
+// @desc Get user profile
+// @route /auth/user
+
 router.get("/user", (req, res) => {
-    res.json(req.isAuthenticated());
+    if (req.user) {
+        res.json(req.user);
+    }
 });
 
 module.exports = router;

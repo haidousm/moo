@@ -12,10 +12,9 @@ function Dashboard() {
 
     useEffect(() => {
         axios
-            .get("http://localhost:5000/auth/user")
-            .then((req: any, res: any) => {
-                console.log(req.data);
-            });
+            .get("http://localhost:5000/auth/user", { withCredentials: true })
+            .then(console.log)
+            .catch(console.error);
     }, []);
 
     return (

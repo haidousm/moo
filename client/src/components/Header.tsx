@@ -52,8 +52,9 @@ const ProfileImageContainer: any = styled.div`
     width: 100px;
 
     border-radius: 50%;
-    background-image: url(${(props: IProps) =>
-        props.userProfile ? props.userProfile.imageUrl : ""});
+    background-image: url("${(props: IProps) =>
+        props.userProfile ? props.userProfile.imageUrl : ""}");
+    background-size: contain;
 `;
 
 const EditProfileButton = styled.a`
@@ -79,7 +80,10 @@ function Header({ setPostCreatedFlag, userProfile }: IProps) {
                     Edit Profile
                 </EditProfileButton>
             </ProfileContainer>
-            <PostForm setPostCreatedFlag={setPostCreatedFlag} />
+            <PostForm
+                setPostCreatedFlag={setPostCreatedFlag}
+                userProfile={userProfile}
+            />
         </HeaderContainer>
     );
 }

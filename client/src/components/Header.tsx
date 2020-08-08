@@ -4,6 +4,14 @@ import styled from "styled-components";
 
 interface IProps {
     setPostCreatedFlag: (postCreated: boolean) => void;
+    userProfile: IUserProfile;
+}
+
+interface IUserProfile {
+    displayName: string;
+    firstName: string;
+    lastName: string;
+    imageUrl: string;
 }
 
 // Styling
@@ -39,12 +47,13 @@ const ProfileContainer = styled.div`
     }
 `;
 
-const ProfileImageContainer = styled.div`
+const ProfileImageContainer: any = styled.div`
     height: 100px;
     width: 100px;
 
     border-radius: 50%;
-    background-color: #000;
+    background-image: url(${(props: IProps) =>
+        props.userProfile ? props.userProfile.imageUrl : ""});
 `;
 
 const EditProfileButton = styled.a`
@@ -59,11 +68,13 @@ const EditProfileButton = styled.a`
     width: 100px;
 `;
 
-function Header({ setPostCreatedFlag }: IProps) {
+function Header({ setPostCreatedFlag, userProfile }: IProps) {
     return (
         <HeaderContainer>
             <ProfileContainer>
-                <ProfileImageContainer></ProfileImageContainer>
+                <ProfileImageContainer
+                    userProfile={userProfile}
+                ></ProfileImageContainer>
                 <EditProfileButton href="https://google.com">
                     Edit Profile
                 </EditProfileButton>

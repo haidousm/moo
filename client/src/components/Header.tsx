@@ -80,10 +80,7 @@ function Header({ setPostCreatedFlag, userProfile }: IProps) {
                     Edit Profile
                 </EditProfileButton>
             </ProfileContainer>
-            <PostForm
-                setPostCreatedFlag={setPostCreatedFlag}
-                userProfile={userProfile}
-            />
+            <PostForm setPostCreatedFlag={setPostCreatedFlag} />
         </HeaderContainer>
     );
 }

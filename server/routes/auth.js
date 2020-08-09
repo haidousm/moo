@@ -1,6 +1,7 @@
 const express = require("express");
-const passport = require("passport");
 const router = express.Router();
+
+const passport = require("passport");
 
 // @desc    Auth with Google
 // @route   GET /auth/google
@@ -11,29 +12,16 @@ router.get("/google", passport.authenticate("google", { scope: ["profile"] }));
 router.get(
     "/google/callback",
     passport.authenticate("google", {
-        failureRedirect: "/",
-        successRedirect: "http://localhost:3000/dashboard",
+        failureRedirect: process.env.CLIENT_URI_LOGIN,
+        successRedirect: process.env.CLIENT_URI_DASHBOARD,
     })
 );
 
 // @desc    Logout user
-// @route   /auth/logout
+// @route   GET /auth/logout
 router.get("/logout", (req, res) => {
     req.logout();
-    res.redirect("http://localhost:3000/");
-});
-
-// @desc Get user profile
-// @route /auth/user
-
-router.get("/user", (req, res) => {
-    if (req.user) {
-        res.statusCode = 200;
-        res.json(req.user);
-    } else {
-        res.statusCode = 401;
-        res.send();
-    }
+    res.redirect(process.env.CLIENT_URI_LOGIN);
 });
 
 module.exports = router;

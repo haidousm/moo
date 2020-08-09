@@ -4,8 +4,7 @@ const router = express.Router();
 const Post = require("../models/Post");
 
 // @desc Get all posts
-// @route GET /posts
-
+// @route GET /posts/
 router.get("/", async (req, res) => {
     try {
         const posts = await Post.find()
@@ -17,23 +16,20 @@ router.get("/", async (req, res) => {
     }
 });
 
-// @desc Create New Post
-// @route POST /posts
-
-router.post("/", (req, res) => {
+// @desc Create new post
+// @route POST /posts/
+router.post("/", async (req, res) => {
     const newPost = new Post({
-        content: req.body.post.toString(),
         user: req.user._id,
+        content: req.body.post.toString(),
         createdAt: new Date(),
     });
-
-    newPost.save((error, newPost) => {
-        if (error) {
-            return console.error(error);
-        }
-
-        console.log("Successfully saved Post to DB");
-    });
+    try {
+        await Post.create(newPost);
+        console.log("Successfully saved post to DB");
+    } catch (error) {
+        console.log(error);
+    }
 });
 
 module.exports = router;

@@ -19,6 +19,12 @@ interface IPosts {
 interface IPost {
     content: string;
     createdAt: string;
+    user: IUser;
+}
+
+interface IUser {
+    firstName: string;
+    lastName: string;
 }
 
 // Types for component props - used to fetch new posts when a new post is created
@@ -53,6 +59,7 @@ function Feed({ postCreatedFlag, setPostCreatedFlag }: IProps) {
                 .get("http://localhost:5000/posts", { withCredentials: true })
                 .then((posts: IPosts) => {
                     setFetchedPosts(posts.data);
+                    console.log(posts.data);
                 })
                 .catch(console.error);
             setPostCreatedFlag(false);
@@ -63,16 +70,14 @@ function Feed({ postCreatedFlag, setPostCreatedFlag }: IProps) {
         <FeedContainer>
             {
                 // Display each post by new-first (done by reversing arr)
-                fetchedPosts
-                    .slice(0)
-                    .reverse()
-                    .map((post, i) => (
-                        <Post
-                            key={i}
-                            postContent={post.content}
-                            postDate={new Date(post.createdAt)}
-                        />
-                    ))
+                fetchedPosts.slice(0).map((post, i) => (
+                    <Post
+                        key={i}
+                        postContent={post.content}
+                        postDate={new Date(post.createdAt)}
+                        postUsername={`${post.user.firstName} ${post.user.lastName}`}
+                    />
+                ))
             }
         </FeedContainer>
     );

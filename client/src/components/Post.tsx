@@ -5,6 +5,7 @@ import styled from "styled-components";
 interface IProps {
     postContent: string;
     postDate: Date;
+    postUsername: string;
 }
 
 // Styles
@@ -88,12 +89,12 @@ const PostContentContainer = styled.div`
     }
 `;
 
-function Post({ postContent, postDate }: IProps) {
+function Post({ postContent, postDate, postUsername }: IProps) {
     return (
         <PostContainer>
             <PostInfoContainer>
                 <PostUsernameContainer>
-                    <p>Moussa Haidous</p>
+                    <p>{postUsername}</p>
                 </PostUsernameContainer>
                 <PostDateContainer>
                     <p>{postDate.toLocaleString()}</p>

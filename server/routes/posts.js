@@ -6,11 +6,15 @@ const Post = require("../models/Post");
 // @desc Get all posts
 // @route GET /posts
 
-router.get("/", (req, res) => {
-    const posts = Post.find(function (error, posts) {
-        if (error) return console.error(error);
+router.get("/", async (req, res) => {
+    try {
+        const posts = await Post.find()
+            .populate("user")
+            .sort({ createdAt: "desc" });
         res.json(posts);
-    });
+    } catch (error) {
+        console.error(error);
+    }
 });
 
 // @desc Create New Post

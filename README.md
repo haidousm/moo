@@ -1,2 +1,2 @@
 # moo
-a MERN Twitter Clone built with React & Typescript
+a Twitter Clone built with React & Typescript
